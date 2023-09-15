@@ -3,6 +3,9 @@ import modal
 import json
 import os
 
+stub = modal.Stub(image=modal.Image.debian_slim().pip_install("openai"))
+@stub.function(secret=modal.Secret.from_name("my-openai-secret"))
+
 def main():
     st.title("Newsletter Dashboard")
 
